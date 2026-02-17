@@ -1,0 +1,54 @@
+{
+  "name": "airport-ride-pooling",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js --forceExit --detectOpenHandles",
+    "test:unit": "node --experimental-vm-modules node_modules/jest/bin/jest.js tests/unit --forceExit",
+    "test:integration": "node --experimental-vm-modules node_modules/jest/bin/jest.js tests/integration --forceExit --detectOpenHandles",
+    "db:generate": "npx prisma generate",
+    "db:migrate": "npx prisma migrate dev --name init",
+    "db:push": "npx prisma db push",
+    "db:seed": "node prisma/seed.js",
+    "db:setup": "npx prisma generate && npx prisma db push && node prisma/seed.js"
+  },
+  "keywords": [
+    "airport",
+    "ride-pooling",
+    "nodejs",
+    "express"
+  ],
+  "author": "",
+  "license": "ISC",
+  "description": "Smart Airport Ride Pooling Backend System – Groups passengers into shared cabs, optimizes routes and pricing.",
+  "prisma": {
+    "seed": "node prisma/seed.js"
+  },
+  "dependencies": {
+    "@prisma/adapter-pg": "^7.4.0",
+    "@prisma/client": "^7.4.0",
+    "compression": "^1.8.1",
+    "cors": "^2.8.6",
+    "dotenv": "^17.3.1",
+    "express": "^5.2.1",
+    "express-rate-limit": "^8.2.1",
+    "helmet": "^8.1.0",
+    "ioredis": "^5.9.3",
+    "morgan": "^1.10.1",
+    "pg": "^8.18.0",
+    "prisma": "^7.4.0",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1",
+    "uuid": "^13.0.0",
+    "winston": "^3.19.0",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "jest": "^30.2.0",
+    "nodemon": "^3.1.11",
+    "supertest": "^7.2.2"
+  }
+}
